@@ -76,6 +76,10 @@ def parse(sentence: List[str]) -> str:
 
     Returns:
         A human readable sentence with spaces separating words
+    
+    Example:
+        >>> parse(['.... . .-.. .-.. ---', '.-- --- .-. .-.. -..'])
+        'hello world'
     """
     output = ''
     for word in sentence:
