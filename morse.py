@@ -1,12 +1,5 @@
 from typing import List, Dict
 
-dot = 1
-dash = 3
-
-sub_letter_space = 1
-letter_space = 3
-word_space = 7
-
 alphabet: Dict[str, str] = {
     'a': '.-',
     'b': '-...',
@@ -52,10 +45,14 @@ def parse_word(word: str) -> str:
     """Takes a string representation of word in morse code and parses it into human readable text
     
     Args:
-        word: This is a string containing only dots and spaces. Ex: '... --- ...'
+        word: This is a string containing only dots and spaces.
 
     Returns:
-        The human readable translated text. Ex: 'sos'
+        The human readable translated text. 
+
+    Example: 
+        >>> parse_word('... --- ...')
+        'sos'
     """
     output = ''
     letters = word.split(' ')
