@@ -49,10 +49,10 @@ alphabet: Dict[str, str] = {
 reverse_alphabet = {value: key for key, value in alphabet.items()}
 
 def parse_word(word: str) -> str:
-    """Takes a string representation of morse code and parses it into human readable text
+    """Takes a string representation of word in morse code and parses it into human readable text
     
     Args:
-        code: This is a string containing only dots and spaces. Ex: '... --- ...'
+        word: This is a string containing only dots and spaces. Ex: '... --- ...'
 
     Returns:
         The human readable translated text. Ex: 'sos'
@@ -63,8 +63,21 @@ def parse_word(word: str) -> str:
         a = reverse_alphabet.get(letter, '')
         
         if not a:
-            raise ValueError('Invalid letter')
+            raise ValueError('Invalid letter', letter)
 
         output += a
     return output
 
+def parse(sentence: List[str]) -> str:
+    """Takes a string representation of a morse code sentence and parses it into human readable text
+
+    Args:
+        sentence: This is a list of strings each representing a word in morse code
+
+    Returns:
+        A human readable sentence with spaces separating words
+    """
+    output = ''
+    for word in sentence:
+        output += ' ' + parse_word(word)
+    return output.strip()
